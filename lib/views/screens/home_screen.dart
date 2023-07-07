@@ -1,14 +1,15 @@
 import 'package:news_app/data/response/status.dart';
+import 'package:news_app/models/news_model.dart';
 import 'package:news_app/res/app_colors.dart';
 import 'package:news_app/res/text_styles.dart';
 
 import 'package:news_app/view_models/all_news_provider.dart';
 
-import 'package:news_app/views/widgets/list_news_item.dart';
-
 import 'package:news_app/views/widgets/top_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../widgets/news_card_stack.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -78,13 +79,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           //     newsList: allNews,
           //   ),
           // ),
+
           Expanded(
-              child: ListView.builder(
-            itemBuilder: (context, index) {
-              return ListNewsItem(news: allNews[index]);
-            },
-            itemCount: allNews.length,
-          ))
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return NewsCardStack(newsArticle: allNews[index]);
+              },
+              itemCount: allNews.length,
+            ),
+          )
         ],
       );
     }
