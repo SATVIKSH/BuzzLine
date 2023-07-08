@@ -5,22 +5,40 @@ import 'package:news_app/models/news_model.dart';
 import '../../res/app_colors.dart';
 import '../../res/text_styles.dart';
 import '../../utils/routes_name.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class NewsCardStack extends StatelessWidget {
   const NewsCardStack({super.key, required this.newsArticle});
   final NewsModel newsArticle;
-  ImageProvider getImage(String? url) {
-    if (url != null) {
-      return NetworkImage(url);
+  Widget getImage(String? url) {
+    if (url != null && url.trim() != "") {
+      return CachedNetworkImage(
+        imageUrl: url,
+        placeholder: (context, url) => Image.asset(
+          'assets/images/newsbg.jpeg',
+          fit: BoxFit.cover,
+        ),
+        errorWidget: (context, irl, error) {
+          print(error.toString());
+          return Image.asset(
+            'assets/images/newsbg.jpeg',
+            fit: BoxFit.cover,
+          );
+        },
+        fit: BoxFit.cover,
+      );
     } else {
-      return const AssetImage('assets/images/newsbg.jpeg');
+      return Image.asset(
+        'assets/images/newsbg.jpeg',
+        fit: BoxFit.cover,
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    print(screenSize.width * 0.6);
+
     return Center(
       child: Padding(
         padding: EdgeInsets.only(
@@ -39,15 +57,7 @@ class NewsCardStack extends StatelessWidget {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
             child: Stack(
               children: [
-                Positioned.fill(
-                  child: FadeInImage(
-                      fadeInCurve: Curves.linear,
-                      fadeOutCurve: Curves.linear,
-                      fit: BoxFit.fill,
-                      placeholder:
-                          const AssetImage('assets/images/newsbg.jpeg'),
-                      image: getImage(newsArticle.image)),
-                ),
+                Positioned.fill(child: getImage(newsArticle.image)),
                 Positioned(
                   bottom: 0,
                   left: 0,

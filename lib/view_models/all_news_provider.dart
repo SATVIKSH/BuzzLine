@@ -17,12 +17,12 @@ class AllNewsNotifier extends StateNotifier<ApiResponses<List<NewsModel>>> {
     ApiResponses.loading();
     _fetchRepo.getAllNews().then((value) {
       state = ApiResponses.completed(data: value);
-      Navigator.of(context).pushNamed(RoutesName.home);
+      Navigator.of(context).pushReplacementNamed(RoutesName.home);
       if (kDebugMode) {
         print(value.toString());
       }
     }).onError((error, stackTrace) {
-      ApiResponses.error(message: error.toString());
+      state = ApiResponses.error(message: error.toString());
       if (kDebugMode) {
         print(DateFormat('yyyy-MM-dd')
             .format(DateTime.now().subtract(const Duration(days: 3))));
@@ -43,9 +43,11 @@ class AllNewsNotifier extends StateNotifier<ApiResponses<List<NewsModel>>> {
         print(value.toString());
       }
     }).onError((error, stackTrace) {
-      ApiResponses.error(message: error.toString());
+      state = ApiResponses.error(message: error.toString());
       if (kDebugMode) {
         print(error.toString());
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Error Occured')));
       }
     });
   }

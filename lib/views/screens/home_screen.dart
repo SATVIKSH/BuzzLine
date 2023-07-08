@@ -1,5 +1,5 @@
 import 'package:news_app/data/response/status.dart';
-import 'package:news_app/models/news_model.dart';
+
 import 'package:news_app/res/app_colors.dart';
 import 'package:news_app/res/text_styles.dart';
 
@@ -41,7 +41,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       );
     }
     if (allNewsResponse.status == Status.COMPLETED) {
-      final allNews = allNewsResponse.data!;
+      final allNews = allNewsResponse.data;
       widget = Column(
         children: [
           Padding(
@@ -81,13 +81,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           // ),
 
           Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return NewsCardStack(newsArticle: allNews[index]);
-              },
-              itemCount: allNews.length,
-            ),
-          )
+              child: allNews != null
+                  ? ListView.builder(
+                      itemBuilder: (context, index) {
+                        return NewsCardStack(newsArticle: allNews[index]);
+                      },
+                      itemCount: allNews.length,
+                    )
+                  : Center(
+                      child: Text(
+                        "Not connected to internet",
+                        style: TextStyles.content
+                            .copyWith(color: AppColors.onBackgroundNoHighlight),
+                      ),
+                    ))
         ],
       );
     }

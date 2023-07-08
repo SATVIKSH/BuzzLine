@@ -13,7 +13,7 @@ class NewsDetailScreen extends StatefulWidget {
 
 class _NewsDetailScreenState extends State<NewsDetailScreen> {
   ImageProvider getImage(String? url) {
-    if (url != null) {
+    if (url != null && url.trim() != "") {
       return NetworkImage(
         url,
       );
@@ -58,7 +58,6 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(

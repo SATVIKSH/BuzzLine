@@ -48,8 +48,6 @@ class FetchNewsRespository {
       }
 
       return allNews;
-    } catch (e) {
-      throw e;
-    }
+    } catch (e) {}
   }
 }
