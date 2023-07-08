@@ -44,7 +44,7 @@ dependencies:
   intl: ^0.18.1
   swipe_cards: ^2.0.0+1
   cached_network_image: ^3.2.3
-  
+
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +71,59 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/newsbg.jpeg
+    - assets/images/flags/uae.webp
+    - assets/images/flags/argentina.webp
+    - assets/images/flags/australia.webp
+    - assets/images/flags/austria.webp
+    - assets/images/flags/belgium.png
+    - assets/images/flags/brazil.png
+    - assets/images/flags/bulgaria.png
+    - assets/images/flags/canada.webp
+    - assets/images/flags/china.webp
+    - assets/images/flags/colombia.png
+    - assets/images/flags/cuba.png
+    - assets/images/flags/czech.webp
+    - assets/images/flags/egypt.webp
+    - assets/images/flags/france.webp
+    - assets/images/flags/germany.webp
+    - assets/images/flags/greece.png
+    - assets/images/flags/hongkong.webp
+    - assets/images/flags/hungary.png
+    - assets/images/flags/india.webp
+    - assets/images/flags/indonasia.webp
+    - assets/images/flags/ireland.webp
+    - assets/images/flags/israel.webp
+    - assets/images/flags/italy.png
+    - assets/images/flags/japan.png
+    - assets/images/flags/korea.webp
+    - assets/images/flags/latvia.png
+    - assets/images/flags/lithuania.png
+    - assets/images/flags/malaysia.webp
+    - assets/images/flags/mexico.png
+    - assets/images/flags/morocco.png
+    - assets/images/flags/netherlands.webp
+    - assets/images/flags/newzealand.webp
+    - assets/images/flags/nigeria.png
+    - assets/images/flags/norway.png
+    - assets/images/flags/phillipines.webp
+    - assets/images/flags/poland.png
+    - assets/images/flags/portugal.webp
+    - assets/images/flags/romania.png
+    - assets/images/flags/russia.webp
+    - assets/images/flags/saudiarabia.webp
+    - assets/images/flags/serbia.png
+    - assets/images/flags/singapore.webp
+    - assets/images/flags/slovakia.png
+    - assets/images/flags/southafrica.webp
+    - assets/images/flags/sweden.png
+    - assets/images/flags/switzerland.png
+    - assets/images/flags/thailand.webp
+    - assets/images/flags/turkey.webp
+    - assets/images/flags/uk.webp
+    - assets/images/flags/ukraine.webp
+    - assets/images/flags/usa.webp
+    - assets/images/flags/venezuela.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

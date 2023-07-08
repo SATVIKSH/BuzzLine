@@ -11,7 +11,7 @@ class NewsCardStack extends StatelessWidget {
   const NewsCardStack({super.key, required this.newsArticle});
   final NewsModel newsArticle;
   Widget getImage(String? url) {
-    if (url != null && url.trim() != "") {
+    if (url != null && url.trim() != "" && url.contains("http")) {
       return CachedNetworkImage(
         imageUrl: url,
         placeholder: (context, url) => Image.asset(
@@ -43,8 +43,8 @@ class NewsCardStack extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(
             bottom: screenSize.height * 0.02,
-            left: screenSize.width * 0.04,
-            right: screenSize.width * 0.04),
+            left: screenSize.width * 0.03,
+            right: screenSize.width * 0.03),
         child: InkWell(
           onTap: () {
             Navigator.of(context)

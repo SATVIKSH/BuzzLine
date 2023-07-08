@@ -18,8 +18,8 @@ const List categories = [
 ];
 
 class TopNavBar extends ConsumerStatefulWidget {
-  const TopNavBar({super.key});
-
+  const TopNavBar({super.key, required this.country});
+  final String country;
   @override
   ConsumerState<TopNavBar> createState() => _TopNavBarState();
 }
@@ -53,7 +53,8 @@ class _TopNavBarState extends ConsumerState<TopNavBar> {
                           index: index, alignment: index * (1 / 10));
                       ref.read(allNewsProvider.notifier).getCategoryNews(
                           category: categories[index].toString().toLowerCase(),
-                          context: context);
+                          context: context,
+                          country: widget.country);
                     });
             },
             child: Padding(

@@ -1,5 +1,6 @@
 import 'package:news_app/models/news_model.dart';
 import 'package:news_app/utils/routes_name.dart';
+import 'package:news_app/views/screens/country_view.dart';
 import 'package:news_app/views/screens/home_screen.dart';
 import 'package:news_app/views/screens/news_detail_screen.dart';
 import 'package:news_app/views/screens/splash_screen.dart';
@@ -16,6 +17,8 @@ class Routes {
         return MaterialPageRoute(
             builder: (context) =>
                 NewsDetailScreen(news: settings.arguments as NewsModel));
+      case RoutesName.countryList:
+        return MaterialPageRoute(builder: (context) => CountryListView());
       default:
         return MaterialPageRoute(builder: ((_) {
           return const Scaffold(body: Center(child: Text("No Route Defined")));

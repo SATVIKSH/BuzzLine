@@ -1,7 +1,9 @@
 import 'package:news_app/data/response/status.dart';
 
 import 'package:news_app/res/app_colors.dart';
+import 'package:news_app/res/current_country.dart';
 import 'package:news_app/res/text_styles.dart';
+import 'package:news_app/utils/routes_name.dart';
 
 import 'package:news_app/view_models/all_news_provider.dart';
 
@@ -44,17 +46,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       final allNews = allNewsResponse.data;
       widget = Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(
-                left: screenSize.width * 0.3,
-                right: screenSize.width * 0.3,
-                bottom: screenSize.height * 0.01),
-            child: Divider(
-              height: screenSize.height * 0.01,
-              thickness: screenSize.width * 0.004,
-              color: AppColors.onBackgroundNoHighlight,
-            ),
-          ),
           // Padding(
           //     padding: EdgeInsets.symmetric(
           //         vertical: screenSize.height * 0.01,
@@ -108,6 +99,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               style: TextStyles.mainTitle
                   .copyWith(color: AppColors.onBackgroundHighlight),
             ),
+            actions: [
+              Padding(
+                padding: EdgeInsets.only(right: screenSize.width * 0.02),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(RoutesName.countryList);
+                  },
+                  icon: const Icon(Icons.travel_explore),
+                  iconSize: 30,
+                  color: AppColors.onBackgroundHighlight,
+                ),
+              )
+            ],
           ),
           backgroundColor: AppColors.background,
           body: Column(
@@ -116,7 +120,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 padding: EdgeInsets.symmetric(
                     vertical: screenSize.height * 0.02,
                     horizontal: screenSize.width * 0.04),
-                child: const TopNavBar(),
+                child: TopNavBar(country: CurrentCountry.currentCountry),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: screenSize.width * 0.3,
+                    right: screenSize.width * 0.3,
+                    bottom: screenSize.height * 0.01),
+                child: Divider(
+                  height: screenSize.height * 0.01,
+                  thickness: screenSize.width * 0.004,
+                  color: AppColors.onBackgroundNoHighlight,
+                ),
               ),
               Expanded(child: widget!),
             ],

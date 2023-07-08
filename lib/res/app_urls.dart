@@ -11,7 +11,7 @@ class AppUrl {
   static final everythingEndPoint =
       '$baseUrl/top-headlines?from=${DateFormat('yyyy-MM-dd').format(DateTime.now().subtract(const Duration(days: 3)))}&apiKey=$API_KEY';
 
-  static String categoryEndpoint(String keyword) {
-    return '$baseUrl/top-headlines?country=$_country&category=$keyword&apiKey=$API_KEY';
+  static String categoryEndpoint(String keyword, String country) {
+    return '$baseUrl/top-headlines?country=$country&category=$keyword&apiKey=$API_KEY';
   }
 }

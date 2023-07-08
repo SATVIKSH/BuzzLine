@@ -34,9 +34,11 @@ class AllNewsNotifier extends StateNotifier<ApiResponses<List<NewsModel>>> {
   }
 
   void getCategoryNews(
-      {required String category, required BuildContext context}) {
+      {required String category,
+      required BuildContext context,
+      required String country}) {
     state = ApiResponses.loading();
-    _fetchRepo.getCategoryNews(category).then((value) {
+    _fetchRepo.getCategoryNews(category, country).then((value) {
       state = ApiResponses.completed(data: value);
 
       if (kDebugMode) {

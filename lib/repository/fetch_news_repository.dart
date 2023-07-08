@@ -30,12 +30,12 @@ class FetchNewsRespository {
     }
   }
 
-  Future<dynamic> getCategoryNews(String category) async {
+  Future<dynamic> getCategoryNews(String category, String country) async {
     try {
       List<NewsModel> allNews = [];
 
       response = await _apiServices
-          .getGetApiResponse(AppUrl.categoryEndpoint(category));
+          .getGetApiResponse(AppUrl.categoryEndpoint(category, country));
       print(response['totalResults']);
       for (int i = 0; i < response['articles'].length; i++) {
         allNews.add(NewsModel(
