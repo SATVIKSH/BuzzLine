@@ -10,3 +10,6 @@ A news application to browse through latest news articles from around the world.
 
 ## ScreenShots
 <img src="https://github.com/SATVIKSH/news_app/blob/main/imag1.jpg" width="200" height="400">
+<img src="https://github.com/SATVIKSH/news_app/blob/main/image2.jpg" width="200" height="400">
+
+
