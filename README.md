@@ -1,7 +1,6 @@
-<p align="center">
+
 ## NewsApp
 A news application to browse through latest news articles from around the world.
-</p>
  
 
 ## Features
