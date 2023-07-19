@@ -9,4 +9,4 @@ A news application to browse through latest news articles from around the world.
 * Articles can be saved to local device storage for future reference.
 
 ## ScreenShots
-![Alt text](/imag1.jpg)
+![Alt text](/imag1.jpg | width=200 | height=400)
