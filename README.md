@@ -1,5 +1,5 @@
    
-## NewsApp
+## BuzzLine
 A news application to browse through latest news articles from around the world.
  
 
